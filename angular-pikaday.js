@@ -57,15 +57,18 @@ angular.module('angular-pikaday', [])
       });
 
       // Allow date format to be set and dynamically changed
-      attrs.$observe('pikaday', function(format) {
-        if (format) {
-          picker._o.format = format;
-          if(!pikaconfig.option_overrides.inputFormats) {
+      attrs.$observe('pikaday', function(opts) {
+        if (typeof opts == 'string') {
+          opts = JSON.parse(opts);
+        }
+        if (opts && opts.option_overrides && opts.option_overrides.format) {
+          picker._o.format = opts.option_overrides.format;
+          if(!opts.option_overrides.inputFormats) {
             picker._o.inputFormats = picker._o.format;
           }
           inputElement.val(picker.toString());
 
-          picker._o.showTime = !!format.match(timeTokens.join('|'));
+          picker._o.showTime = !!JSON.stringify(opts).match(timeTokens.join('|'));
 
           if (ngModel) {
             ngModel.$validate();
