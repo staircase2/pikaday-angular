@@ -79,6 +79,9 @@ angular.module('angular-pikaday', [])
       if (ngModel) {
         // Incoming from model changes, revalidate and force a date type
         ngModel.$formatters.push(function(value) {
+          if (!angular.isDate(value)) {
+            value = new Date(value);
+          }
           if (angular.isDate(value)) {
             picker.setDate(value, true);
             return picker.toString();
