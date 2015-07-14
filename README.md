@@ -35,6 +35,5 @@ If there are better ways to do things, please send in pull requests. I'd love to
 Grunt default task is to fire up a node server with auto watch updates for quick development. Run grunt in the root directory.
 
 ## Authors
-* Owen Mead-Robins [http://www.owenmead.com/][owenmead]
+* Staircase 2 / SquareCrumbs
 
-[owenmead]:     http://owenmead.com/                                             "owenmead.com"
