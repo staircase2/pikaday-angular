@@ -35,6 +35,8 @@ angular.module('angular-pikaday', [])
         };
       }
 
+      angular.extend(options, pikaconfig.option_overrides)
+
       // Attach picker to element
       inputElement[0]._pikaday = new Pikaday( options );
       var picker = inputElement[0]._pikaday;
